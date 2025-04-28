@@ -4,7 +4,7 @@ using UnityEngine;
 public class birbScript : MonoBehaviour
 {
     private Rigidbody2D rigidBody;
-    [SerializeField] private float flapForce;
+    [SerializeField] private float flapSpeed;
     public event Action birbDead;
     private bool isAlive = true;
 
@@ -17,9 +17,9 @@ public class birbScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.W) && isAlive)
+        if (Input.GetKeyDown(KeyCode.W) && isAlive)
         {
-            rigidBody.AddForceY(flapForce);
+            rigidBody.linearVelocityY = flapSpeed;
         }
     }
 
